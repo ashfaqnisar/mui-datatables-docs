@@ -20,7 +20,6 @@ const config = {
   favicon: 'img/favicon.ico',
   organizationName: 'ashfaqnisar', // Usually your GitHub org/user name.
   projectName: 'mui-datatables-repo', // Usually your repo name.
-
   presets: [
     [
       'classic',
@@ -33,11 +32,6 @@ const config = {
           showLastUpdateTime: true,
           remarkPlugins: [math, [npm2yarn, {sync: true}]],
         },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          editUrl: repoLink,
-        },
         pages: {
           remarkPlugins: [npm2yarn],
         },
@@ -47,7 +41,6 @@ const config = {
       }),
     ],
   ],
-
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
@@ -85,10 +78,10 @@ const config = {
             items: [
               {
                 label: 'Introduction',
-                to: '/docs/intro',
+                to: '/docs',
               }, {
                 label: 'Installation',
-                to: '/docs/intro',
+                to: '/docs/getting-started/installation',
               },
             ],
           },
@@ -113,8 +106,8 @@ const config = {
             title: 'More',
             items: [
               {
-                label: 'changelog',
-                to: '/changelog',
+                label: 'Changelog',
+                to: '/docs/changelog',
               },
               {
                 label: 'GitHub',
