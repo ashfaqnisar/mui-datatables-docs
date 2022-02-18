@@ -2,46 +2,113 @@
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# Introduction
 
-Let's discover **Docusaurus in less than 5 minutes**.
+🚀 MUI-Datatables is a **responsive datatables** component built on top of **Material-UI**.
 
-## Getting Started
+📦 Out of the box, it has **various responsive modes** like simple, standard and vertical.
 
-Get started by **creating a new site**.
+ℹ It comes with **various features** such as searching, filtering, sorting, pagination, resizable columns, view/hide
+columns, draggable columns, exporting, printing, selectable rows, expandable rows and **easy to customize** with the
+help of material ui.
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+## Fast Track ⏱️
 
-### What you'll need
+Get started by **installing mui-datatables** as a dependency.
 
-- [Node.js](https://nodejs.org/en/download/) version 14 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+### Install mui-datatables
 
-## Generate a new site
+MUI Datatables is available as a package on NPM for use in a Node application:
 
-Generate a new Docusaurus site using the **classic template**.
-
-The classic template will automatically be added to your project after you run the command:
-
-```bash
-npm init docusaurus@latest my-website classic
+```bash npm2yarn
+npm install mui-datatables
 ```
 
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
+### Required Packages
 
-The command also installs all necessary dependencies you need to run Docusaurus.
+With mui-datatables you also need to have these [@mui-material](https://www.npmjs.com/package/@mui/material)
+, [@mui/icons-materials](https://www.npmjs.com/package/@mui/icons-material)
+and [@mui/styles](https://www.npmjs.com/package/@mui/styles) dependencies installed in your node application.
 
-## Start your site
-
-Run the development server:
-
-```bash
-cd my-website
-npm run start
+```bash npm2yarn
+npm install @mui-material @mui/icons-materials @mui/styles
 ```
 
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
+### Usage
 
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
+The below is sample of mui-datatables with minimal configuration.
 
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+```jsx
+import MUIDataTable from "mui-datatables";
+import {
+  createTheme,
+  StyledEngineProvider,
+  ThemeProvider
+} from "@mui/material/styles";
+
+const columns = [
+  {
+    name: "hero",
+    label: "Superhero",
+    options: {
+      filter: true,
+      sort: true
+    }
+  },
+  {
+    name: "name",
+    label: "Name",
+    options: {
+      filter: true,
+      sort: false
+    }
+  }
+];
+
+const data = [
+  {name: "Bruce Wayne", hero: "Batman"},
+  {name: "Clark kent", hero: "Superman"},
+  {name: "Arthur Curry", hero: "Aquaman"}
+];
+
+const options = {
+  responsive: "standard"
+};
+
+export default function App() {
+  return (
+    <StyledEngineProvider injectFirst>
+      <ThemeProvider theme={createTheme()}>
+        <MUIDataTable
+          title={"Superheros List"}
+          data={data}
+          columns={columns}
+          options={options}
+        />
+      </ThemeProvider>
+    </StyledEngineProvider>
+  );
+}
+```
+
+The output of code is in this [sandbox](https://codesandbox.io/s/basic-sample-mui-datatables-xd72v3?file=/src/App.js):
+
+<iframe 
+  class="codesandbox"
+  src="https://codesandbox.io/embed/basic-sample-mui-datatables-xd72v3?fontsize=14&hidenavigation=1&theme=dark&runonclick=1" 
+  sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
+  style={{width:"100%", height:"500px", border:0, borderRadius: "8px", overflow:"hidden"}}
+/>
+
+## Features
+
+Update the features of mui-datatables
+
+## Staying Informed
+
+Social media links.
+
+## Something Missing ?
+
+If you find issues with the documentation or have suggestions on how to improve the documentation or
+the project in general, please [file an issue](https://github.com/ashfaqnisar/mui-datatables-docs/issues) for us.

@@ -4,17 +4,22 @@
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
+const npm2yarn = require('@docusaurus/remark-plugin-npm2yarn');
+const math = require('remark-math');
+
+const repoLink = "https://github.com/ashfaqnisar/mui-datatables-docs/tree/main"
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
+  title: 'MUI Datatables',
+  tagline: 'Datatables for Material UI',
   url: 'https://your-docusaurus-test-site.com',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'ashfaqnisar', // Usually your GitHub org/user name.
+  projectName: 'mui-datatables-repo', // Usually your repo name.
 
   presets: [
     [
@@ -24,13 +29,17 @@ const config = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
-          editUrl: 'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          editUrl: repoLink,
+          showLastUpdateTime: true,
+          remarkPlugins: [math, [npm2yarn, {sync: true}]],
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          editUrl: repoLink,
+        },
+        pages: {
+          remarkPlugins: [npm2yarn],
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -42,10 +51,15 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      colorMode: {
+        defaultMode: 'dark',
+        disableSwitch: false,
+        respectPrefersColorScheme: true,
+      },
       navbar: {
-        title: 'My Site',
+        title: 'MUI Datatables',
         logo: {
-          alt: 'My Site Logo',
+          alt: 'Logo',
           src: 'img/logo.svg',
         },
         items: [
@@ -53,14 +67,14 @@ const config = {
             type: 'doc',
             docId: 'intro',
             position: 'left',
-            label: 'Tutorial',
+            label: 'Docs',
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
           {
-            href: 'https://github.com/facebook/docusaurus',
-            label: 'GitHub',
-            position: 'right',
+            href: 'https://github.com/gregnb/mui-datatables',
+            label: 'Repo',
+            position: 'left',
           },
+
         ],
       },
       footer: {
@@ -70,7 +84,10 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'Tutorial',
+                label: 'Introduction',
+                to: '/docs/intro',
+              }, {
+                label: 'Installation',
                 to: '/docs/intro',
               },
             ],
@@ -96,17 +113,17 @@ const config = {
             title: 'More',
             items: [
               {
-                label: 'Blog',
-                to: '/blog',
+                label: 'changelog',
+                to: '/changelog',
               },
               {
                 label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
+                href: 'https://github.com/gregnb/mui-datatables',
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Made with love by Ashfaqnisar`,
       },
       prism: {
         theme: lightCodeTheme,
