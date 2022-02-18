@@ -26,6 +26,7 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
+          routeBasePath: '/', // Serve the docs at the site's root
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           editUrl: repoLink,
@@ -36,7 +37,7 @@ const config = {
           remarkPlugins: [npm2yarn],
         },
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: require.resolve('./css/custom.css'),
         },
       }),
     ],
@@ -78,10 +79,10 @@ const config = {
             items: [
               {
                 label: 'Introduction',
-                to: '/docs',
+                to: '/',
               }, {
                 label: 'Installation',
-                to: '/docs/getting-started/installation',
+                to: '/getting-started/installation',
               },
             ],
           },
@@ -107,7 +108,7 @@ const config = {
             items: [
               {
                 label: 'Changelog',
-                to: '/docs/changelog',
+                to: '/changelog',
               },
               {
                 label: 'GitHub',
