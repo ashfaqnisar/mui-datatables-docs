@@ -29,11 +29,11 @@ npm install mui-datatables
 ### Required Packages
 
 With mui-datatables you also need to have these [@mui-material](https://www.npmjs.com/package/@mui/material)
-, [@mui/icons-materials](https://www.npmjs.com/package/@mui/icons-material)
+, [@mui/icons-material](https://www.npmjs.com/package/@mui/icons-material)
 and [@mui/styles](https://www.npmjs.com/package/@mui/styles) dependencies installed in your node application.
 
 ```bash npm2yarn
-npm install @mui-material @mui/icons-materials @mui/styles
+npm install @mui-material @mui/icons-material @mui/styles
 ```
 
 ### Usage
